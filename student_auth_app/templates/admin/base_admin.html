@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin_style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark "  >
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+            <img src="/static/image/logoo.svg"  style="width:250px; height: 65px;" alt="" class="img-fluid">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>    
+        <div class="collapse navbar-collapse" id="collapsibleNavbar" style="float: right;">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'admin_home' %}" id="a1">HOME</a>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'view_staff' %}" id="a1">STAFF</a>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'add_stud' %}" id="a1">ADD STUDENT</a>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'course_load' %}" id="a1">ADD COURSE</a>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ad_show_students' %}" id="a1">SHOW STUDENTS</a>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li class="nav-item" >
+                    <a class="nav-link" href="{% url 'logout' %}" id="a1">LOGOUT</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>        
+    </nav> 
+    {% block content %}
+    
+    {% endblock %}
+</body>
+</html>

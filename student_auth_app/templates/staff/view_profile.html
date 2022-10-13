@@ -1,0 +1,39 @@
+{% extends 'staff/base_staff.html' %}
+{% block content %}
+{% load static %}
+<body id="bo1">
+<div class="container-fluid"style="margin-top:10%;">
+   <center>
+        {% for i in user1 %}
+   
+    <div class="card mb-3" style="max-width: 540px;background-color: rgb(156, 156, 250);">
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% if i.image == '/static/image/none.png' %}
+                    <td id="td1">
+                        <img src="{% static 'image/none.png' %}"  style="height: 120px;width:100px;">
+                    </td>
+                {% else %}
+                    <td id="td1">
+                        <img src="{{ i.image.url }}"  style="height: 190px;width:190px;">
+                    </td>
+                {% endif %} 
+            </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title" style="font-size: 40px;text-align:center;">&nbsp;&nbsp;&nbsp;{{ i.staff.first_name }}&nbsp;&nbsp;{{ i.staff.last_name }}</h5>
+                <table class="table table-dark table-striped">
+                    <p class="card-text">
+                        <tr><td>Address:</td><td>{{ i.staff_address }}</td></tr>
+                        <tr><td>Gender:</td><td>{{ i.gender }}</td></tr>
+                        <tr><td>EMAIL:</td><td>{{ i.staff.email }}</td></tr>
+                        <tr><td>MOB:</td><td>{{ i.staff_phone }}</td></tr>               
+                    </p>
+                </table>
+            </div>
+        </div>
+    </div>
+  {% endfor %}
+</div></center>
+</body>
+{% endblock %}

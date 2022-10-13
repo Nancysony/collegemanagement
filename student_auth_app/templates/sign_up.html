@@ -1,0 +1,86 @@
+
+{% extends 'base_main.html' %}
+{% load static %}
+{% block content %}
+    <body style="background-color: rgb(245, 245, 130);">
+        <br><h2 style="text-align: CENTER;">STAFF REGISTRATION</h2><br>
+        <div class="container-fluid" style=" height: 960px; width: 480px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+                
+            <br><form method="post" action="{% url 'add_staff' %}"  enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">FIRST NAME :</label>
+                    <input type="text" class="form-control" id="name" placeholder=" Enter your firstname" name="fname" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="name">LAST NAME :</label>
+                    <input type="text" class="form-control" id="name" placeholder=" Enter your lastname" name="lname" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="name">ADDRESS :</label>
+                    <input type="text" class="form-control" id="name" placeholder=" Enter your address" name="add" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">EMAIL :</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your Email ID" name="email" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+            <div class="form-group">
+                <label for="username">USERNAME :</label>
+                <input type="text" class="form-control" id="uname" placeholder="Enter your username" name="uname" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="pwd">PASSWORD:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="Cpwd"> CONFIRM PASSWORD:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Re-Enter password" name="cpswd" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="GENDER"> GENDER:</label><br>
+                <input type="radio" id="male" name="gender" value="MALE" >
+                <label id="l2">Male</label>
+                <input type="radio" id="female" name="gender" value="FEMALE">
+                <label id="l2">Female</label>
+                <input type="radio" id="OTHER" name="gender" value="OTHERS">
+                <label id="l2">Others</label>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="pwd"> CONTACT NUMBER:</label>
+                <input type="number" class="form-control" id="pwd" placeholder="Enter your Contact number" name="mob" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="img"> IMAGE:</label>
+                <input type="file" name="file" id="file1" accept="image/*">
+                <label for="file1" id="l">
+                    <i class="material-icons">add_photo_alternate</i>&nbsp;&nbsp;&nbsp;
+                    Choose your picture
+                </label>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div><br>
+            <center>
+                <button type="submit" class="btn btn-success text-center" id="btn">REGISTER</button>
+            </center>
+        </form>
+        </div><br>
+    </body>
+{% endblock %}

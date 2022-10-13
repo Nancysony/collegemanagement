@@ -1,0 +1,18 @@
+#file1{
+    display: none;
+}
+#l{
+    color: black;
+    width: 190px;
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+   
+}
+
+#a1{
+    font-size: 20px;
+    color: white;
+}

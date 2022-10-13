@@ -1,0 +1,99 @@
+{% extends 'staff/base_staff.html' %}
+{% block content %}
+{% load static %}
+<body id="bo1">
+<div class="container-fluid" style="margin-top:15px;">
+    <h1 style="text-align: center;">EDIT MY DETAILS</h1>
+    <center>
+<form method="post" action="{% url 'edit_profile' st.id %}"  enctype="multipart/form-data">
+    {% csrf_token %}
+    
+        <table id="table1" class="table table-dark table-hover">
+            <tr>
+                <td>
+                    <label id="l2">Enter first_name:&nbsp;&nbsp;&nbsp;</label>
+                </td>
+                <td>
+                    <input type="text" name="fname" value="{{ st.staff.first_name }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="l2">Enter last_name:</label>
+                </td>
+                <td>
+                    <input type="text" name="lname" value="{{ st.staff.last_name }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="l2">Enter address:</label>
+                </td>
+                <td>
+                    <input type="text" name="add" value="{{ st.staff_address }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="l2">Enter Email:</label>
+                </td>
+                <td>
+                    <input type="email" name="email" value="{{ st.staff.email }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="l2">Enter username:</label>
+                </td>
+                <td>
+                    <input type="text" name="uname" value="{{ st.staff.username }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="l2">Enter Gender:</label>
+                </td>
+                <td>
+                    <input {% if st.gender == 'MALE' %} checked {% endif %} type="radio" id="male" name="gender" value="MALE">
+                    <label id="l2">Male</label>
+                    <input {% if st.gender == 'FEMALE' %}  checked {% endif %} type="radio" id="female" name="gender" value="FEMALE" >
+                    <label id="l2">Female</label>
+                    <input {% if st.gender == 'OTHERS' %} checked {% endif %} type="radio" id="OTHER" name="gender" value="OTHERS" >
+                    <label id="l2">Others</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="l2">Enter Mobile no:</label>
+                </td>
+                <td>
+                    <input type="tel" name="mob" value="{{ st.staff_phone }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="l2">Image:</label>
+                </td>
+                {% if st.image == '/static/image/none.png' %}
+                    <td>
+                        <img src="{% static 'image/none.png' %}" style="height: 120px;width:100px;"><br>
+                        <input type="file" name="file" id="ts" class="form-control mt-3" accept="image/*"  >
+                    </td>
+                {% else %}
+                    <td>
+                        <img src="{{ st.image.url }}" style="height: 120px;width:100px;"><br>
+                        <input type="file" name="file" id="ts" class="form-control mt-3" accept="image/*" value="{{ st.image.url }}" >
+                    </td>
+                {% endif %} 
+            </tr><br>
+            <tr style="text-align: center;"><td></td>
+                <td><button type="submit" id="b" class="btn btn-success">UPDATE</button></td></tr>
+        </table><br>
+        
+    
+</form>
+</center>
+<input type="button" value="PREVIOUS PAGE" class="btn btn-info"onclick="javascript:history.go(-1);"id="d">
+</div>
+</body>
+{% endblock %}

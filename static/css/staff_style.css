@@ -1,0 +1,13 @@
+#a1{
+    color: white;
+}
+#bo{
+    background-image: url('/static/image/staff_bg.jpg');
+    background-size: cover;
+}
+#bo1{
+    background-color: rgb(228, 243, 145);
+}
+#table1{
+    width: 550px;
+}

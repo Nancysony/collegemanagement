@@ -1,0 +1,23 @@
+{% extends 'admin/base_admin.html' %}
+{% block content %}
+<body id="bo1">
+    <div class="container" style="margin-top: 50px;width:500px;">
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD STUDENT</h2>
+    <br><form action="{% url 'add_student' %}" method="post" >
+        {% csrf_token %}
+        <input type="text" name="sname"class="form-control" placeholder="Student Name"><br>
+        <input type="text" name="add" class="form-control" placeholder="Address"><br>
+        <input type="number" name="age" class="form-control" placeholder="Age"><br>
+        <input type="date" name="jdate" class="form-control" placeholder="Joining Date"><br>
+        <select class="form-control" name="sel">
+            {% for course in courses %}
+            <option value="{{ course.id }}">{{ course.course_name}}</option>
+            {% endfor %}
+        </select><br>
+        <input type="number" name="mob" class="form-control" placeholder="Phone number"><br>
+
+        <button type="submit" class="btn btn-outline-info" style="margin-left: 40%;">Submit</button>
+    </form>
+</div>
+</body>
+{% endblock %}

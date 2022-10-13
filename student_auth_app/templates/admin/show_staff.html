@@ -1,0 +1,49 @@
+{% extends 'admin/base_admin.html' %}
+{% block content %}
+{% load static %}
+<body id="bo1">
+<div class="container-fluid"
+style="margin-top:20px;">
+<center>
+<div class="container ">
+   <h1>STAFF DETAILS</h1><br>
+   <table class="table table-success table-striped">
+       <thead>
+           <tr>
+               <th>Staff Name</th>
+               <th>Address</th>
+               <th>Gender</th>
+               <th>Email Id</th>
+               <th>Phone number</th>
+               <th>Profile picture</th>
+               <th>ACTION</th>
+           </tr>
+       </thead>
+       <tbody>
+           {% for i in std %}
+           <tr>
+               <td>{{ i.staff.first_name }}&nbsp;&nbsp;{{ i.staff.last_name }}</td>
+               <td>{{ i.staff_address }}</td>
+               <td>{{ i.gender }}</td>
+               <td>{{ i.staff.email }}</td>
+               <td>{{ i.staff_phone }}</td>
+               {% if i.image == '/static/image/none.png' %}
+                  <td id="td1">
+                     <img src="{% static 'image/none.png' %}"  style="height: 120px;width:100px;">
+                  </td>
+               {% else %}
+                  <td id="td1">
+                     <img src="{{ i.image.url }}"  style="height: 120px;width:100px;">
+                  </td>
+               {% endif %}
+               <td><a href="{% url 'delete_staff' i.id %}">DELETE</a></td>
+            </tr>
+           {% endfor %}
+       </tbody>
+   </table>
+
+</div>
+</center>
+</div>
+</body>
+{% endblock %}
